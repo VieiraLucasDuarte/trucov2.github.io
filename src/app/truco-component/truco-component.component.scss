@@ -1,0 +1,472 @@
+.background {
+    // background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
+    background-color: rgb(44, 78, 46);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player {
+    height: 90%;
+    width: 55%;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.6px);
+    -webkit-backdrop-filter: blur(2.6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    .bottom{
+        border-radius: 15px 15px 0 0;
+    }
+
+    .btn-hide {
+        background-color: #858381;
+        border: solid transparent;
+        border-radius: 16px;
+        border-width: 0 0 4px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px #332f2b;
+        letter-spacing: 2px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 3px 0;
+        transform: translateZ(0);
+        width: 110px;
+        height: 50px;
+        position: fixed;
+        top: 2%;
+        left: 1%;
+        z-index: 99;
+
+        &::after {
+            background-clip: padding-box;
+            background-color: #a8a7a7;
+            border: solid transparent;
+            border-radius: 16px;
+            border-width: 0 0 4px;
+            bottom: -4px;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+    
+        &:hover:not(:disabled) {
+            filter: brightness(1.1);
+            -webkit-filter: brightness(1.1);
+        }
+    
+        &:active {
+            border-width: 4px 0 0;
+            background: none;
+        }
+    }
+
+    .btn-truco {
+        background-color: #d68418;
+        border: solid transparent;
+        border-radius: 16px;
+        border-width: 0 0 4px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px #c35f06;
+        letter-spacing: 2px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 13px 16px;
+        transform: translateZ(0);
+        width: 110px;
+        height: 50px;
+        position: fixed;
+        top: -12%;
+        left: 85%;
+        z-index: 99;
+    
+        &::after {
+            background-clip: padding-box;
+            background-color: #f6bc1c;
+            border: solid transparent;
+            border-radius: 16px;
+            border-width: 0 0 4px;
+            bottom: -4px;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+    
+        &:hover:not(:disabled) {
+            filter: brightness(1.1);
+            -webkit-filter: brightness(1.1);
+        }
+    
+        &:active {
+            border-width: 4px 0 0;
+            background: none;
+        }
+    }
+}
+
+.card-deck {
+    display: flex;
+    justify-content: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 13%;
+    height: 55%;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    border: 2px solid #a8a7a7;
+    box-shadow: 2px 2px 4px #6b635c;
+
+    &.no-background {
+        background-color: rgb(79 66 66 / 8%);
+        border: none;
+        box-shadow: none;
+    }
+    
+    .turned {
+        object-fit: cover;
+        height: 180px;
+        position: relative;
+        top: -22px;
+    }
+
+    .naipes {
+        text-align-last: center;
+        width: 97%;
+        height: 60%;
+
+        img {
+            width: 90%;
+
+            &.copas {
+                width: 70%;
+                height: 95%;
+            }
+        }
+    }
+    
+    &:first-child {
+        transform: rotate(28deg);
+    }
+
+    &:last-child {
+        transform: rotate(341deg)
+    }
+
+    h4 {
+        font-size: 20px;
+        font-weight: 800;
+
+        &.card-rigth {
+            text-align: -webkit-right;
+        }
+    }
+}
+
+.principal-table {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+
+    .manilhas-board {
+        width: 20%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        .manilhas-background {
+            width: 90%;
+            height: 60%;
+            border-radius: 15px;
+            background-image: url("https://www.transparenttextures.com/patterns/retina-wood.png");
+            background-color: #572b02;
+            border: 1px solid #251201;
+            display: flex;
+            flex-direction: column;
+            place-content: center;
+            gap: 10px;
+
+            h3 {
+                height: 20%;
+                font-size: 22px;
+                text-align-last: center;
+                align-content: center;
+                color: #ffffff;
+                text-shadow: 2px 2px 4px #251201;
+                letter-spacing: 5px;
+            }
+
+            .manilhas-list {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                align-items: center;
+                height: 45%;
+                
+                .manilha {
+                    display: flex;
+                    flex-direction: column;
+                    width: 20%;
+                    background-color: #e9e9e9;
+                    border-radius: 5px;
+                    border: 1px solid #cecece;
+                    text-align: -webkit-center;
+                    justify-content: space-evenly;
+                    box-shadow: 2px 2px 4px #251201;
+
+                    .manilha-naipes {
+                        align-self: center;
+                        width: 85%;
+                        height: 50%;
+                    }
+
+                    h4 {
+                        font-size: 15px;
+                
+                        &.card-rigth {
+                            text-align: -webkit-right;
+                        }
+
+                        &.card-left {
+                            text-align: -webkit-left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .middle-table {
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        
+        .baralho-table {
+            width: 50%;
+            align-content: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .baralho {
+                height: 200px;
+                z-index: 99;
+                transform: rotate(337deg);
+                filter: drop-shadow(-10px 6px 5px rgb(6, 39, 13));
+                position: absolute;
+                width: 425px;
+            }
+
+            .manilha-central {
+                display: flex;
+                flex-direction: column;
+                width: 22%;
+                height: 45%;
+                background-color: #e9e9e9;
+                border-radius: 5px;
+                border: 1px solid #cecece;
+                text-align: -webkit-center;
+                justify-content: space-evenly;
+                box-shadow: 2px 2px 4px #251201;
+                right: 760px;
+                transform: rotate(38deg);
+                position: relative;
+                left: 145px;
+
+                .naipes {
+                    text-align-last: center;
+                    width: 97%;
+                    height: 60%;
+            
+                    img {
+                        width: 90%;
+            
+                        &.copas {
+                            width: 70%;
+                            height: 95%;
+                        }
+                    }
+                }
+            
+                h4 {
+                    font-size: 20px;
+                    font-weight: 800;
+            
+                    &.card-rigth {
+                        text-align: -webkit-right;
+                    }
+
+                    &.card-left {
+                        text-align: -webkit-left;
+                    }
+                }
+            }
+        }
+
+        .jogo-table {
+            width: 50%;
+
+            .battle-table {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+
+                .selected-card {
+                    display: flex;
+                    flex-direction: column;
+                    width: 26%;
+                    height: 50%;
+                    background-color: #e9e9e9;
+                    border-radius: 5px;
+                    border: 1px solid #cecece;
+                    text-align: -webkit-center;
+                    justify-content: space-evenly;
+                    box-shadow: 2px 2px 4px #251201;
+                    transform: rotate(20deg);
+
+                    &.by-user {
+                        transform: rotate(354deg);
+                    }
+
+                    .naipes {
+                        text-align-last: center;
+                        width: 97%;
+                        height: 60%;
+                
+                        img {
+                            width: 90%;
+                
+                            &.copas {
+                                width: 70%;
+                                height: 95%;
+                            }
+                        }
+                    }
+
+                    h4 {
+                        font-size: 20px;
+                
+                        &.card-rigth {
+                            text-align: -webkit-right;
+                        }
+
+                        &.card-left {
+                            text-align: -webkit-left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pontuacao-board {
+        width: 20%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        .pontuacao-background {
+            width: 90%;
+            height: 50%;
+            border-radius: 15px;
+            background-image: url("https://www.transparenttextures.com/patterns/retina-wood.png");
+            background-color: #572b02;
+            border: 1px solid #251201;
+            display: flex;
+            flex-direction: column;
+            place-content: center;
+            gap: 10px;
+        }
+
+        h3 {
+            height: 20%;
+            font-size: 22px;
+            text-align-last: center;
+            align-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #251201;
+            letter-spacing: 5px;
+        }
+
+        .placar-container {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin: 10px;
+            height: 50%;
+
+            .placar-rows {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                &.pontos {
+                    text-align: center;
+                    text-shadow: 2px 2px 4px #251201;
+                }
+
+                h4 {
+                    font-size: 20px;
+                    color: #ffffff;
+                    text-shadow: 2px 2px 4px #251201;
+                    letter-spacing: 3px;
+                }
+
+                &.mid-row {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: left;
+                    height: 100%;
+                }
+
+                .rodada {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+
+                    .placar-rodada {
+                        width: 50%;
+                        height: 40%;
+                        border-radius: 50%;
+                        border: 3px solid white;
+                        box-shadow: 2px 2px 4px #251201;
+                    }
+
+                    .green {
+                        background-color: green;
+                    }
+
+                    .red {
+                        background-color: red;
+                    }
+
+                    .orange {
+                        background-color: orange;
+                    }
+
+                    .branco {
+                        background-color: white;
+                    } 
+                }
+            }
+        }
+    }
+}
